@@ -19,9 +19,8 @@ export default function Home() {
   const container = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    // Hero Animations
     const tl = gsap.timeline();
-    
+
     tl.from(".hero-title", {
       y: 50,
       opacity: 0,
@@ -42,7 +41,6 @@ export default function Home() {
       ease: "back.out(1.7)"
     }, "-=0.2");
 
-    // Parallax & Scroll Animations
     gsap.utils.toArray(".scroll-section").forEach((section: any) => {
       gsap.from(section.querySelectorAll(".scroll-element"), {
         scrollTrigger: {
@@ -74,18 +72,18 @@ export default function Home() {
 
   return (
     <div ref={container} className="min-h-screen bg-background">
-      
+
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/40 z-10" />
-          <img 
-            src={heroImg} 
-            alt="Rebata Coffee Plantation" 
+          <img
+            src={heroImg}
+            alt="Rebata Coffee Plantation"
             className="w-full h-full object-cover object-center scale-105"
           />
         </div>
-        
+
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto mt-20">
           <h1 className="hero-title text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight">
             {t('hero.title')}
@@ -107,9 +105,9 @@ export default function Home() {
       <section className="scroll-section py-24 md:py-32 px-4 bg-background">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="order-2 md:order-1 relative h-[600px] rounded-2xl overflow-hidden scroll-element">
-            <img 
-              src={roastingImg} 
-              alt="Coffee Roasting" 
+            <img
+              src={roastingImg}
+              alt="Coffee Roasting"
               className="w-full h-full object-cover"
             />
           </div>
@@ -123,7 +121,7 @@ export default function Home() {
             </p>
             <Link href="/about">
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8">
-                Kenali Kami
+                {t('home.section1_btn')}
               </Button>
             </Link>
           </div>
@@ -139,17 +137,17 @@ export default function Home() {
             </h2>
             <div className="w-12 h-1 bg-primary mx-auto" />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 scroll-element">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
-          
+
           <div className="text-center mt-16 scroll-element">
             <Link href="/menu">
               <Button variant="outline" size="lg" className="rounded-full px-8">
-                Lihat Semua Menu
+                {t('home.section2_btn')}
               </Button>
             </Link>
           </div>
@@ -160,9 +158,9 @@ export default function Home() {
       <section className="parallax-container relative h-[80vh] overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/60 z-10" />
-          <img 
-            src={baristaImg} 
-            alt="Barista Craft" 
+          <img
+            src={baristaImg}
+            alt="Barista Craft"
             className="parallax-bg w-full h-[120%] object-cover absolute -top-[10%]"
           />
         </div>
@@ -171,7 +169,7 @@ export default function Home() {
             {t('home.section3')}
           </h2>
           <p className="text-xl text-white/80 font-light">
-            Diseduh dengan presisi, disajikan dengan hati.
+            {t('home.section3_subtitle')}
           </p>
         </div>
       </section>

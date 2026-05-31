@@ -18,12 +18,12 @@ export default function Cart() {
 
   const handleCheckout = () => {
     const phoneNumber = "6281234567890";
-    
-    let message = "Halo REBATA, saya ingin memesan:\n\n";
+
+    let message = `${t('cart.whatsappGreeting')}\n\n`;
     items.forEach((item, index) => {
       message += `${index + 1}. ${item.product.name} - ${item.quantity}x (${formatPrice(item.product.price * item.quantity)})\n`;
     });
-    message += `\n*Total: ${formatPrice(total)}*\n\nMohon informasi pembayarannya. Terima kasih!`;
+    message += `\n*${t('cart.total')}: ${formatPrice(total)}*\n\n${t('cart.whatsappClosing')}`;
 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
@@ -32,7 +32,7 @@ export default function Cart() {
   return (
     <div className="min-h-screen bg-background pt-24 pb-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <h1 className="text-3xl md:text-4xl font-serif text-foreground mb-8">
           {t('cart.title')}
         </h1>
@@ -53,13 +53,13 @@ export default function Cart() {
               {items.map((item) => (
                 <div key={item.product.id} className="flex flex-col sm:flex-row gap-6 p-6 bg-card rounded-2xl border border-border shadow-sm">
                   <div className="w-full sm:w-32 h-32 rounded-xl overflow-hidden bg-muted flex-shrink-0">
-                    <img 
-                      src={item.product.image} 
+                    <img
+                      src={item.product.image}
                       alt={item.product.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  
+
                   <div className="flex-grow flex flex-col justify-between">
                     <div className="flex justify-between items-start mb-4">
                       <div>
@@ -70,17 +70,17 @@ export default function Cart() {
                           {formatPrice(item.product.price)}
                         </p>
                       </div>
-                      <button 
+                      <button
                         onClick={() => removeFromCart(item.product.id)}
                         className="p-2 text-muted-foreground hover:text-destructive transition-colors"
                       >
                         <Trash2 className="w-5 h-5" />
                       </button>
                     </div>
-                    
+
                     <div className="flex items-center gap-4">
                       <div className="flex items-center border border-border rounded-full p-1 bg-background">
-                        <button 
+                        <button
                           onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
                           className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-muted text-foreground"
                         >
@@ -89,7 +89,7 @@ export default function Cart() {
                         <span className="w-8 text-center text-sm font-medium">
                           {item.quantity}
                         </span>
-                        <button 
+                        <button
                           onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
                           className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-muted text-foreground"
                         >
@@ -105,25 +105,25 @@ export default function Cart() {
             {/* Summary */}
             <div className="lg:col-span-1">
               <div className="bg-card rounded-2xl border border-border shadow-sm p-6 sticky top-24">
-                <h3 className="font-serif text-xl mb-6 text-foreground">Ringkasan</h3>
-                
+                <h3 className="font-serif text-xl mb-6 text-foreground">{t('cart.summary')}</h3>
+
                 <div className="space-y-4 mb-6">
                   <div className="flex justify-between text-muted-foreground">
-                    <span>Subtotal</span>
+                    <span>{t('cart.subtotal')}</span>
                     <span>{formatPrice(total)}</span>
                   </div>
                   <div className="flex justify-between text-muted-foreground">
-                    <span>Pengiriman</span>
-                    <span>Dihitung di WhatsApp</span>
+                    <span>{t('cart.shipping')}</span>
+                    <span>{t('cart.shippingNote')}</span>
                   </div>
                   <div className="h-px bg-border my-4" />
                   <div className="flex justify-between text-foreground font-serif text-xl">
-                    <span>Total</span>
+                    <span>{t('cart.total')}</span>
                     <span className="text-primary">{formatPrice(total)}</span>
                   </div>
                 </div>
 
-                <Button 
+                <Button
                   onClick={handleCheckout}
                   className="w-full bg-[#25D366] hover:bg-[#20BD5A] text-white rounded-full py-6 text-base font-medium flex items-center justify-center gap-2 shadow-sm"
                 >
@@ -131,7 +131,7 @@ export default function Cart() {
                   {t('cart.checkout')}
                 </Button>
                 <p className="text-xs text-center text-muted-foreground mt-4">
-                  Pembayaran akan diproses melalui WhatsApp.
+                  {t('cart.paymentNote')}
                 </p>
               </div>
             </div>

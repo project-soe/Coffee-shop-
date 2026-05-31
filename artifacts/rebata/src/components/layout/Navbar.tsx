@@ -1,15 +1,18 @@
 import { Link, useLocation } from "wouter";
 import { useTranslation } from "react-i18next";
 import { useCart } from "@/hooks/use-cart";
-import { ShoppingCart, Menu as MenuIcon, X } from "lucide-react";
+import { useTheme } from "@/hooks/use-theme";
+import { ShoppingCart, Menu as MenuIcon, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { RebataLogo } from "@/components/RebataLogo";
 
 export function Navbar() {
   const { t, i18n } = useTranslation();
   const [location] = useLocation();
   const { itemCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === 'id' ? 'en' : 'id');
@@ -18,18 +21,17 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: t('nav.home') },
     { href: "/menu", label: t('nav.menu') },
+    { href: "/about", label: t('nav.about') },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
-          <div className="flex items-center">
-            <Link href="/" className="font-serif text-2xl tracking-widest font-bold text-primary">
-              REBATA
-            </Link>
-          </div>
+
+          <Link href="/">
+            <RebataLogo size={40} />
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
@@ -45,12 +47,23 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            
+
             <button
               onClick={toggleLanguage}
               className="text-xs font-bold px-2 py-1 border border-border rounded hover:border-primary hover:text-primary transition-colors uppercase tracking-wider"
             >
-              {i18n.language}
+              {i18n.language === 'id' ? 'EN' : 'ID'}
+            </button>
+
+            <button
+              onClick={toggleTheme}
+              aria-label={t('theme.dark')}
+              className="p-1.5 rounded border border-border hover:border-primary hover:text-primary transition-colors"
+            >
+              {theme === 'dark'
+                ? <Sun className="w-4 h-4" />
+                : <Moon className="w-4 h-4" />
+              }
             </button>
 
             <Link href="/cart" className="relative group">
@@ -63,13 +76,23 @@ export function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          {/* Mobile Controls */}
+          <div className="md:hidden flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="p-1.5 rounded border border-border"
+            >
+              {theme === 'dark'
+                ? <Sun className="w-4 h-4" />
+                : <Moon className="w-4 h-4" />
+              }
+            </button>
             <button
               onClick={toggleLanguage}
               className="text-xs font-bold px-2 py-1 border border-border rounded uppercase tracking-wider"
             >
-              {i18n.language}
+              {i18n.language === 'id' ? 'EN' : 'ID'}
             </button>
             <Link href="/cart" className="relative">
               <ShoppingCart className="w-5 h-5" />
