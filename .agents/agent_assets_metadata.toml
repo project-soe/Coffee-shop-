@@ -1,0 +1,50 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "BTIE2Vd6wvQ6Q0B91na7K"
+uri = "file://artifacts/rebata/src/assets/images/hero.png"
+type = "image"
+title = "cinematic coffee plantation at dawn"
+
+[[generated]]
+id = "_PMp6bhWF-PsPoVT38IoU"
+uri = "file://artifacts/rebata/src/assets/images/signature-blend.png"
+type = "image"
+title = "signature blend coffee beans"
+
+[[generated]]
+id = "Pi5vrQSBm8_oOtq1d122g"
+uri = "file://artifacts/rebata/src/assets/images/toraja.png"
+type = "image"
+title = "toraja arabica coffee beans"
+
+[[generated]]
+id = "oV_Ke1wZZxqKFsFq1sXTv"
+uri = "file://artifacts/rebata/src/assets/images/gayo.png"
+type = "image"
+title = "gayo specialty coffee"
+
+[[generated]]
+id = "DKXRKZQzoT9Vrb79sK9uQ"
+uri = "file://artifacts/rebata/src/assets/images/kopi-susu.png"
+type = "image"
+title = "iced milk coffee glass"
+
+[[generated]]
+id = "0wGjpvaf4aXGCByPTNNsf"
+uri = "file://artifacts/rebata/src/assets/images/cold-brew.png"
+type = "image"
+title = "cold brew coffee bottle"
+
+[[generated]]
+id = "_LRhZxdNwBNQHMTLoleQu"
+uri = "file://artifacts/rebata/src/assets/images/barista.png"
+type = "image"
+title = "barista pouring espresso"
+
+[[generated]]
+id = "TMgEJmNBzJbx3uTR6wBOS"
+uri = "file://artifacts/rebata/src/assets/images/roasting.png"
+type = "image"
+title = "coffee roasting process"
