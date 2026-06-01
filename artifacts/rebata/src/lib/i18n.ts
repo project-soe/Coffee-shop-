@@ -32,6 +32,7 @@ const resources = {
           espresso: "Espresso Based",
           singleOrigin: "Single Origin",
           coldBrew: "Cold Brew",
+          coffeeBeans: "Biji Kopi",
           merchandise: "Merchandise"
         }
       },
@@ -105,6 +106,7 @@ const resources = {
           espresso: "Espresso Based",
           singleOrigin: "Single Origin",
           coldBrew: "Cold Brew",
+          coffeeBeans: "Coffee Beans",
           merchandise: "Merchandise"
         }
       },

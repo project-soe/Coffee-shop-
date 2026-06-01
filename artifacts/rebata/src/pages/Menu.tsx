@@ -17,6 +17,7 @@ export default function Menu() {
     { key: "Espresso Based", label: t('menu.categories.espresso') },
     { key: "Single Origin", label: t('menu.categories.singleOrigin') },
     { key: "Cold Brew", label: t('menu.categories.coldBrew') },
+    { key: "Coffee Beans", label: t('menu.categories.coffeeBeans') },
     { key: "Merchandise", label: t('menu.categories.merchandise') },
   ];
 
