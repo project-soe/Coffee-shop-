@@ -68,7 +68,10 @@ export default function Home() {
 
   }, { scope: container });
 
-  const featuredProducts = PRODUCTS.slice(0, 3);
+  const FEATURED_IDS = ["rebata-signature", "cold-brew", "rebata-beans"];
+  const featuredProducts = FEATURED_IDS
+    .map(id => PRODUCTS.find(p => p.id === id))
+    .filter(Boolean) as typeof PRODUCTS;
 
   return (
     <div ref={container} className="min-h-screen bg-background">
