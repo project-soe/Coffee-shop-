@@ -1,5 +1,11 @@
 import React, { createContext, useContext, useState, useMemo } from 'react';
 
+export type ProductVariant = {
+  id: string;
+  label: string;
+  price: number;
+};
+
 export type Product = {
   id: string;
   name: string;
@@ -7,6 +13,7 @@ export type Product = {
   price: number;
   image: string;
   category: string;
+  variants?: ProductVariant[];
 };
 
 type CartItem = {

@@ -48,28 +48,17 @@ export const PRODUCTS: Product[] = [
     category: "Cold Brew"
   },
   {
-    id: "rebata-beans-100",
-    name: "REBATA Kopi Murni 100gr",
-    description: "100% pure Indonesian coffee beans. Premium matte black packaging. Perfect for trying our signature roast.",
+    id: "rebata-beans",
+    name: "REBATA Kopi Murni",
+    description: "100% pure Indonesian coffee beans in premium matte black packaging. Choose your size below.",
     price: 12000,
     image: rebataPackImg,
-    category: "Coffee Beans"
-  },
-  {
-    id: "rebata-beans-500",
-    name: "REBATA Kopi Murni 500gr",
-    description: "100% pure Indonesian coffee beans. Premium matte black packaging. Our most popular home brewing size.",
-    price: 60000,
-    image: rebataPackImg,
-    category: "Coffee Beans"
-  },
-  {
-    id: "rebata-beans-1000",
-    name: "REBATA Kopi Murni 1000gr",
-    description: "100% pure Indonesian coffee beans. Premium matte black packaging. Best value for the dedicated coffee lover.",
-    price: 110000,
-    image: rebataPackImg,
-    category: "Coffee Beans"
+    category: "Coffee Beans",
+    variants: [
+      { id: "rebata-beans-100", label: "100gr", price: 12000 },
+      { id: "rebata-beans-500", label: "500gr", price: 60000 },
+      { id: "rebata-beans-1000", label: "1000gr", price: 110000 },
+    ]
   }
 ];
 
