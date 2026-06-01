@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>REBATA Coffee Shop</title>
+    <script>
+      // SPA redirect for GitHub Pages
+      // When a direct URL like /Coffee-shop-/menu is requested,
+      // GitHub serves this 404.html. We redirect to index.html
+      // with the path encoded as a query param, then index.html restores it.
+      var l = window.location;
+      var base = '/Coffee-shop-';
+      var path = l.pathname.replace(base, '') || '/';
+      l.replace(
+        l.protocol + '//' + l.host + base +
+        '/?r=' + encodeURIComponent(path + l.search) +
+        (l.hash ? '&h=' + encodeURIComponent(l.hash) : '')
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
